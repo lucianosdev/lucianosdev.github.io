@@ -360,11 +360,19 @@ main {
   text-align: center;
 }
 
-.sobre .btn {
-  display: block;
-  width: fit-content;
 
-  margin: 2rem auto 0;
+.contact-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--secondary);
+    font-weight: 500;
+    margin-top: 24px;
+}
+
+.contact-prompt i {
+    font-size: 1.2rem;
 }
 
 
