@@ -485,6 +485,10 @@ footer p {
 ========================= */
 
 @media (max-width: 600px) {
+   
+   .tema-toggle {
+    margin-left: 10px;
+  }
 
   .navegacao {
     padding: 1rem 0.8rem;
