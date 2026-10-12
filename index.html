@@ -1,1 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Luciano | Dev</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <nav class="navegacao">
+    <ul class="menu">
+      <li>
+        <a href="#inicio" class="menu-link">Início</a>
+      </li>
+
+      <li>
+        <a href="#projetos" class="menu-link">Projetos</a>
+      </li>
+
+      <li>
+        <a href="#sobre" class="menu-link">Sobre</a>
+      </li>
+
+      <li>
+        <a href="#contatos" class="menu-link">Contato</a>
+      </li>
+
+      <li>
+        <button id="tema-toggle" class="tema-toggle" aria-label="Alternar tema">
+          🌙
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- Início -->
+    <section id="inicio" class="cabecalho">
+      <img
+        src="./img/foto1.webp"
+        alt="Foto de Luciano Santos"
+        class="foto-perfil"
+      />
+
+      <h1>Luciano Santos</h1>
+
+      <p class="cabecalho-sub-titulo">
+        Desenvolvedor Full Stack em formação
+      </p>
+
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/in/lucianosantos10"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          class="a-linkd"
+        >
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+
+        <a
+          href="https://github.com/lucianosdev"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          class="a-github"
+        >
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <a href="#projetos" class="btn">Ver Projetos</a>
+    </section>
+
+
+    <!-- Projetos -->
+    <section id="projetos" class="projetos">
+      <h2 class="projetos-titulo">Projetos</h2>
+
+      <div class="projetos-caixa">
+
+        <article class="projetos-card">
+          <h3 class="info-projetos">Livros e Código</h3>
+
+          <p class="paragrafo-projetos">
+            Aplicação web desenvolvida com HTML, CSS, JavaScript e Google Books API
+            para pesquisa de livros.
+          </p>
+
+          <a href="#" class="btn-proj">Ver Projeto</a>
+        </article>
+
+
+        <article class="projetos-card">
+          <h3 class="info-projetos">Sistema Web em Java</h3>
+
+          <p class="paragrafo-projetos">
+            Sistema de revisão de conteúdos com flashcards.
+            Projeto desenvolvido com Java, JSP, XHTML, PrimeFaces e MySQL.
+          </p>
+
+          <a
+            href="https://github.com/lucianosdev/Flashcards"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-proj"
+          >
+            Ver Projeto
+          </a>
+        </article>
+
+      </div>
+
+      <a href="#sobre" class="btn">Sobre mim</a>
+    </section>
+
+
+    <!-- Sobre -->
+    <section id="sobre" class="sobre">
+      <h2 class="sobre-titulo">Sobre mim</h2>
+
+      <div class="contato-caixa">
+        <p class="hero-description">
+          Olá! Sou Luciano Santos, desenvolvedor Full Stack em formação.
+          Graduado em Análise e Desenvolvimento de Sistemas pelo Instituto
+          Federal Farroupilha. Estou construindo minha carreira por meio de
+          estudos, projetos práticos e aprendizado contínuo, buscando criar
+          soluções simples, eficientes e que gerem valor para as pessoas.
+        </p>
+      </div>
+
+      <a href="#contatos" class="btn">Entre em contato</a>
+    </section>
+
+
+    <!-- Contato -->
+    <section id="contatos" class="contatos">
+      <div class="contato-caixa">
+
+        <h2 class="contatos-titulo">Entre em contato</h2>
+
+        <div class="email-text">
+          <a
+            href="https://www.linkedin.com/in/lucianosantos10"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <span class="barra-contato">|</span>
+
+          <a
+            href="https://github.com/lucianosdev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </div>
+
+        <div class="email-text">
+          <span class="barra-contato">Email:</span>
+
+          <a href="mailto:lucianobrsantos97@gmail.com">
+            lucianobrsantos97@gmail.com
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <p>
+      &copy;
+      <span id="ano"></span>
+      Luciano Santos. Desenvolvido com HTML, CSS e JavaScript.
+    </p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll("main > section[id]");
+    const menuLinks = document.querySelectorAll(".menu-link");
+  
+    const temaToggle = document.getElementById("tema-toggle");
+  
+  
+    /* =========================
+       MENU ATIVO
+    ========================= */
+  
+    window.addEventListener("scroll", () => {
+      let current = "";
+  
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+  
+        if (window.scrollY >= sectionTop - 150) {
+          current = section.id;
+        }
+      });
+  
+      menuLinks.forEach((link) => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === `#${current}`
+        );
+      });
+    });
+  
+  
+    /* =========================
+       TEMA DARK / LIGHT
+    ========================= */
+  
+    const temaSalvo = localStorage.getItem("tema");
+  
+    if (temaSalvo === "claro") {
+      document.body.classList.add("tema-claro");
+      temaToggle.textContent = "☀️";
+      temaToggle.setAttribute("aria-label", "Ativar tema escuro");
+    }
+  
+  
+    temaToggle.addEventListener("click", () => {
+      document.body.classList.toggle("tema-claro");
+  
+      const temaClaro = document.body.classList.contains("tema-claro");
+  
+      if (temaClaro) {
+        temaToggle.textContent = "☀️";
+        temaToggle.setAttribute("aria-label", "Ativar tema escuro");
+  
+        localStorage.setItem("tema", "claro");
+      } else {
+        temaToggle.textContent = "🌙";
+        temaToggle.setAttribute("aria-label", "Ativar tema claro");
+  
+        localStorage.setItem("tema", "escuro");
+      }
+    });
+  
+  
+    /* =========================
+       ANO DO FOOTER
+    ========================= */
+  
+    document.getElementById("ano").textContent = new Date().getFullYear();
+  </script>
+  
+</body>
+</html>
