@@ -1,1 +1,708 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top left, #1589d6, #16222a);
+  background-attachment: fixed;
+  color: var(--claro);
+}
+
+
+/* =========================
+   VARIÁVEIS
+========================= */
+
+:root {
+  --primaria: #4f46e5;
+  --secundaria: #7c3aed;
+  --escuro: #0f172a;
+  --maisEscuro: #0a0f1c;
+  --claro: #e2e8f0;
+  --vidro: rgba(255, 255, 255, 0.1);
+  --destaque: rgba(248, 152, 27, 0.822);
+}
+
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+.navegacao {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+  padding: 1.2rem;
+
+  background-color: rgba(0, 15, 20, 0.745);
+  backdrop-filter: blur(5px);
+
+  border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  list-style: none;
+}
+
+.menu-link {
+  position: relative;
+
+  padding: 5px 0;
+
+  color: rgba(248, 245, 245, 0.932);
+  text-decoration: none;
+
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.tema-toggle {
+  margin-left: -0.8rem;
+  border: none;
+  background: transparent;
+
+  color: var(--claro);
+  font-size: 1.2rem;
+
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+}
+
+.tema-toggle:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+
+.menu-link::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  background-color: var(--destaque);
+
+  transition: width 0.3s ease;
+}
+
+.menu-link:hover::after,
+.menu-link.active::after {
+  width: 100%;
+}
+
+/* Quando outro item recebe hover,
+   remove o destaque do item ativo */
+.menu:hover .menu-link.active:not(:hover)::after {
+  width: 0;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  width: 100%;
+}
+
+
+/* =========================
+   SEÇÃO INÍCIO
+========================= */
+
+.cabecalho {
+  min-height: calc(100vh - 70px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.foto-perfil {
+  display: block;
+
+  width: 150px;
+  height: 160px;
+
+  margin-bottom: 1rem;
+
+  border: 4px solid var(--vidro);
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.cabecalho h1 {
+  margin-bottom: 0.5rem;
+
+  color: var(--claro);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+}
+
+.cabecalho-sub-titulo {
+  color: var(--destaque);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+
+/* =========================
+   REDES SOCIAIS
+========================= */
+
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: var(--destaque);
+  font-size: 28px;
+  text-decoration: none;
+
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #f9fafc;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn,
+.btn-proj {
+  display: inline-block;
+
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.8rem;
+
+  border-radius: 8px;
+
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn {
+  background-color: #2563eb;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+.btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+}
+
+.btn-proj {
+  background-color: #0d47a1;
+}
+
+.btn-proj:hover {
+  background-color: #1042cd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+}
+
+.btn:active,
+.btn-proj:active {
+  transform: translateY(0);
+}
+
+
+/* =========================
+   PROJETOS
+========================= */
+
+.projetos {
+  padding: 6rem 1.5rem;
+}
+
+.projetos-titulo,
+.sobre-titulo,
+.contatos-titulo {
+  text-align: center;
+
+  color: var(--claro);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.projetos-titulo {
+  margin-bottom: 3rem;
+}
+
+.projetos-caixa {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+.projetos-card {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 230px;
+
+  padding: 1.5rem;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--vidro);
+  border-radius: 16px;
+
+  backdrop-filter: blur(5px);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.projetos-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(248, 152, 27, 0.35);
+}
+
+.info-projetos {
+  margin-bottom: 0.7rem;
+
+  color: var(--destaque);
+  font-size: 1.15rem;
+}
+
+.paragrafo-projetos {
+  color: var(--claro);
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.projetos-card .btn-proj {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.projetos > .btn {
+  display: block;
+  width: fit-content;
+  margin: 2rem auto 0;
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.sobre {
+  padding: 6rem 1.5rem;
+}
+
+.sobre-titulo {
+  margin-bottom: 3rem;
+}
+
+.hero-description {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  color: #e5e7eb;
+
+  font-size: 1.08rem;
+  line-height: 1.8;
+
+  text-align: center;
+}
+
+.sobre .btn {
+  display: block;
+  width: fit-content;
+
+  margin: 2rem auto 0;
+}
+
+
+/* =========================
+   CONTATO
+========================= */
+
+.contatos {
+  padding: 6rem 1.5rem;
+}
+
+.contatos-titulo {
+  margin-bottom: 3rem;
+}
+
+.contato-caixa {
+  width: 100%;
+  max-width: 600px;
+
+  min-height: 200px;
+
+  margin: 0 auto;
+  padding: 2rem;
+
+  border: 1px solid var(--vidro);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.email-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  margin-bottom: 1rem;
+
+  color: #fff;
+
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.email-text:last-child {
+  margin-bottom: 0;
+}
+
+.email-text a {
+  color: var(--destaque);
+
+  font-weight: 500;
+  text-decoration: none;
+
+  overflow-wrap: anywhere;
+}
+
+.email-text a:hover {
+  text-decoration: underline;
+}
+
+.barra-contato {
+  color: var(--destaque);
+  font-weight: 700;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 1.5rem;
+
+  margin-top: 2rem;
+
+  background-color: #1f2937;
+
+  color: #fff;
+
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 768px) {
+
+  .menu {
+    gap: 1.8rem;
+  }
+
+  .projetos {
+    padding: 5rem 1.5rem;
+  }
+
+  .projetos-caixa {
+    gap: 1.5rem;
+  }
+
+  .sobre,
+  .contatos {
+    padding: 5rem 1.5rem;
+  }
+
+}
+
+
+/* =========================
+   SMARTPHONES
+========================= */
+
+@media (max-width: 600px) {
+
+  .navegacao {
+    padding: 1rem 0.8rem;
+  }
+
+  .menu {
+    gap: 1.2rem;
+  }
+
+  .menu-link {
+    font-size: 0.9rem;
+  }
+
+
+  .cabecalho {
+    min-height: calc(100vh - 60px);
+
+    padding: 3rem 1.2rem;
+  }
+
+  .foto-perfil {
+    width: 130px;
+    height: 140px;
+  }
+
+  .cabecalho-sub-titulo {
+    font-size: 0.95rem;
+  }
+
+
+  .social-links a {
+    font-size: 25px;
+  }
+
+
+  .projetos {
+    padding: 4rem 1rem;
+  }
+
+  .projetos-titulo {
+    margin-bottom: 2rem;
+  }
+
+  .projetos-caixa {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .projetos-card {
+    min-height: 210px;
+    padding: 1.3rem;
+  }
+
+  .paragrafo-projetos {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+
+  .sobre,
+  .contatos {
+    padding: 4rem 1rem;
+  }
+
+  .sobre-titulo,
+  .contatos-titulo {
+    margin-bottom: 2rem;
+  }
+
+  .hero-description {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+
+  .contato-caixa {
+    padding: 1.5rem 1rem;
+  }
+
+  .email-text {
+    font-size: 0.95rem;
+  }
+
+
+  .btn,
+  .btn-proj {
+    padding: 0.8rem 1.4rem;
+    font-size: 0.95rem;
+  }
+
+
+  footer {
+    padding: 1.2rem 1rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+
+/* =========================
+   TELAS MUITO PEQUENAS
+========================= */
+
+@media (max-width: 380px) {
+
+  .menu {
+    gap: 0.8rem;
+  }
+
+  .menu-link {
+    font-size: 0.82rem;
+  }
+
+  .cabecalho {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .foto-perfil {
+    width: 115px;
+    height: 125px;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+  }
+
+  .email-text {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .email-text .barra-contato {
+    display: none;
+  }
+}
+
+  /* =========================
+   TEMA CLARO
+========================= */
+
+body.tema-claro {
+  --claro: #1f2937;
+  --vidro: rgba(15, 23, 42, 0.1);
+  --destaque: #e67e00;
+
+  background: #f4f7fb;
+  color: var(--claro);
+}
+
+
+/* Navegação */
+
+body.tema-claro .navegacao {
+  background-color: rgba(255, 255, 255, 0.88);
+  border-bottom-color: rgba(15, 23, 42, 0.1);
+}
+
+body.tema-claro .menu-link {
+  color: #1f2937;
+}
+
+
+/* Início */
+
+body.tema-claro .cabecalho h1 {
+  color: #1f2937;
+}
+
+
+/* Redes sociais */
+
+body.tema-claro .social-links a:hover {
+  color: #2563eb;
+}
+
+
+/* Cards */
+
+body.tema-claro .projetos-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+body.tema-claro .projetos-card:hover {
+  border-color: rgba(230, 126, 0, 0.4);
+}
+
+
+/* Sobre */
+
+body.tema-claro .hero-description {
+  color: #374151;
+}
+
+
+/* Contato */
+
+body.tema-claro .contato-caixa {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+body.tema-claro .email-text {
+  color: #1f2937;
+}
+
+
+/* Footer */
+
+body.tema-claro footer {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+
 
