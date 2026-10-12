@@ -360,21 +360,19 @@ main {
   text-align: center;
 }
 
-
 .contact-prompt {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 10px;
-    color: var(--secondary);
-    font-weight: 500;
     margin-top: 24px;
+    width: 100%;
 }
 
 .contact-prompt i {
     font-size: 1.2rem;
 }
-
 
 /* =========================
    CONTATO
