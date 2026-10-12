@@ -202,26 +202,34 @@
     /* =========================
        MENU ATIVO
     ========================= */
-  
-    window.addEventListener("scroll", () => {
-      let current = "";
-  
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-  
-        if (window.scrollY >= sectionTop - 150) {
-          current = section.id;
-        }
-      });
-  
-      menuLinks.forEach((link) => {
-        link.classList.toggle(
-          "active",
-          link.getAttribute("href") === `#${current}`
-        );
-      });
-    });
+    
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+
+    if (window.scrollY >= sectionTop - 150) {
+      current = section.id;
+    }
+  });
+
+  // Verifica se o usuário chegou ao final da página
+  const chegouAoFinal =
+    window.innerHeight + window.scrollY >=
+    document.documentElement.scrollHeight - 5;
+
+  if (chegouAoFinal && sections.length > 0) {
+    current = sections[sections.length - 1].id;
+  }
+
+  menuLinks.forEach((link) => {
+    link.classList.toggle(
+      "active",
+      link.getAttribute("href") === `#${current}`
+    );
+  });
+});
   
   
     /* =========================
