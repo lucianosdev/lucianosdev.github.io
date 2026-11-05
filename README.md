@@ -6,11 +6,11 @@ Este projeto apresenta um pouco da minha trajetória, conhecimentos e projetos d
 
 ## 🧑‍💻 Sobre mim
 
-Sou **Desenvolvedor Full Stack em formação**, com formação em Análise e Desenvolvimento de Sistemas.
+Sou **Desenvolvedor Full Stack em formação**, graduado em Análise e Desenvolvimento de Sistemas pelo Instituto Federal Farroupilha (IFFar).
 
-Tenho interesse em desenvolvimento de software e venho aprimorando meus conhecimentos por meio de projetos práticos e estudos contínuos.
+Concluí o curso **Dev Full Stack + IA**, da **+praTI**, e venho aprimorando meus conhecimentos por meio de estudos contínuos e projetos práticos.
 
-Atualmente, estou desenvolvendo conhecimentos principalmente nas áreas de desenvolvimento **Front-end, Back-end, bancos de dados e APIs REST**.
+Tenho interesse em desenvolvimento de software e venho desenvolvendo habilidades principalmente nas áreas de **Front-end, Back-end, bancos de dados e APIs REST**.
 
 ## 🛠️ Tecnologias
 
